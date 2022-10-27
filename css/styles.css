@@ -578,19 +578,19 @@ footer .logo {
 }
 .portfolio-thumb {
   position: relative;
+  overflow: hidden;
 }
-.portfolio-thumb::before {
-  display: inline-block;
+.overlay {
   position: absolute;
-  content: '';
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  transform: translateY(101%);
 
   background-color: rgba(33, 150, 243, 0.9);
 
-  opacity: 0;
+  transition: transform 250ms var(--cubic);
 }
 .description-thumb {
   box-sizing: border-box;
@@ -610,8 +610,6 @@ footer .logo {
   line-height: 1.56;
   letter-spacing: 0.03em;
   color: var(--white);
-
-  opacity: 0;
 }
 
 .portfolio-descr {
@@ -635,11 +633,11 @@ footer .logo {
 }
 .portfolios .portfolio:hover .description-thumb,
 .portfolios .portfolio:focus .description-thumb {
-  opacity: 1;
+  /* opacity: 1; */
 }
-.portfolios .portfolio:hover .portfolio-thumb::before,
-.portfolios .portfolio:focus .portfolio-thumb::before {
-  opacity: 1;
+.portfolios .portfolio:hover .overlay,
+.portfolios .portfolio:focus .overlay {
+  transform: translateY(0);
 }
 .portfolios .title {
   margin-top: 0;
